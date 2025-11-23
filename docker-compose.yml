@@ -18,6 +18,7 @@ services:
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - /home/ase/.docker/config.json
     # Poll every 300 seconds (5 minutes) for updates
     command: --interval 300 --cleanup
 
