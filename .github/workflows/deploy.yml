@@ -45,3 +45,13 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
+  trigger-watchtower:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    environment: og
+    steps:
+      - name: Trigger Watchtower Update
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.WATCHTOWER_HTTP_API_TOKEN }}" \
+            http://${{ secrets.WATCHTOWER_HOST }}:8069/v1/update
