@@ -23,5 +23,5 @@ services:
     ports:
       - "8069:8069"
     # Run in HTTP API mode, listening on port 8069, cleanup old images
-    command: --http-api-update --http-api-port 8069 --cleanup
+    command: --http-api-update  --cleanup
 
