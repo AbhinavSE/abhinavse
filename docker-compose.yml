@@ -1,0 +1,23 @@
+services:
+  web:
+    # Replace 'username/repo-name' with your GitHub username and repository name (lowercase)
+    # Example: image: ghcr.io/johndoe/my-app:latest
+    image: ghcr.io/abhinavse/abhinavse:latest
+    container_name: abhinavse
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    # Poll every 300 seconds (5 minutes) for updates
+    command: --interval 300 --cleanup
+

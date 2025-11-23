@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex flex-col w-full max-w-[800px] mx-auto pb-16">
+    <!-- Header -->
+    <h1 class="text-6xl font-bold mb-1">Abhinav Ennazhiyil</h1>
+    <p class="text-xl text-gray-500 dark:text-gray-400 mb-4">Data Scientist</p>
+
+    <!-- Social Links -->
+    <div class="flex gap-4 mb-8">
+        <a href="https://linkedin.com/in/abhinav-ennazhiyil" target="_blank" class="text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://github.com/AbhinavSE" target="_blank" class="text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 6 2 7.8 2 14 2 2.8 2.3 2 3.3 2 5 2 5.9-1.7 7.7-3.5 7.3-3.5 7.3-5.2 7.3-6.3 7.3-8.1 7.3-8.1-.5-1.1-.5-2.3 0-3.5 1 2.5 1 4.4 1 5.4v.3c.3.1.5.2.8.3.5.2 1.1.3 1.7.3 3.2 0 6.1-2.6 6.1-6 0-3.3-2.9-6-6.1-6z"/></svg>
+        </a>
+    </div>
+
+    <!-- Profile -->
+    <div class="flex flex-col items-start w-full mb-8">
+        <h2 class="text-2xl font-bold mb-2">Profile</h2>
+        <p class="leading-relaxed">
+            Data scientist with a Bachelor's degree in Computer Science and 3 years of work experience. Proven track record of building and deploying ML and LLM-based solutions that drive business impact across marketing, sales, and finance. Developed a high-performing CLTV model from scratch and designed AI systems that generate personalized marketing emails and financial reports using Retrieval-Augmented Generation (RAG) frameworks. Skilled in working cross-functionally with stakeholders to translate complex business challenges into scalable data products. Strong technical foundation in machine learning, LangChain, AWS Bedrock, and data experimentation, with a focus on delivering actionable insights and measurable outcomes.
+        </p>
+    </div>
+
+    <!-- Skills -->
+    <div class="flex flex-col items-start w-full mb-8">
+        <h2 class="text-2xl font-bold mb-2">Skills</h2>
+        <div class="flex flex-wrap gap-2">
+            {% for skill in ["LangChain", "PydanticAI", "RAG", "AWS Bedrock", "Machine Learning (Regression, Classification, Clustering)", "Statistical Analysis", "Python", "Excel", "SQL", "Project Management"] %}
+            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm font-medium dark:bg-blue-900 dark:text-blue-200">{{ skill }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Professional Experience -->
+    <div class="flex flex-col items-start w-full mb-8">
+        <h2 class="text-2xl font-bold mb-4">Professional Experience</h2>
+        
+        <!-- C2FO -->
+        <div class="w-full mb-4">
+            <div class="flex justify-between items-baseline w-full">
+                <h3 class="text-lg font-bold">Data Scientist</h3>
+                <span class="text-sm text-gray-500 dark:text-gray-400">Jun 2022 – present</span>
+            </div>
+            <p class="text-sm font-bold mb-2">C2FO | Noida, Delhi</p>
+
+            <div class="mb-4">
+                <p class="text-sm font-bold">AI Email Generator</p>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li>Built C2FO's first production-grade GenAI application, increasing average response rates from ~1% to ~5% across Europe and the U.S.</li>
+                    <li>LLM-driven marketing email generator using LangChain and AWS Bedrock, integrated into Marketo.</li>
+                    <li>Email personalization using real-time Internal data, conversation history, and external data like market trends, press releases, etc.</li>
+                    <li>Implemented quality assurance using a custom validation system (DeepEval).</li>
+                </ul>
+            </div>
+
+            <div class="mb-4">
+                <p class="text-sm font-bold">AI Financial Reports</p>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li>Developed a financial report generator to support the marketing team with customer's working capital insights, reducing research effort from ~3 days to ~2 min.</li>
+                    <li>Used a RAG pipeline with LangChain and AWS Bedrock to extract and synthesize key trends from SEC 10-K/10-Q filings.</li>
+                    <li>Integrated the reports into Salesforce for on-demand sales enablement.</li>
+                </ul>
+            </div>
+
+            <div class="mb-4">
+                <p class="text-sm font-bold">Customer Lifetime Value Model</p>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li>Engineered a custom Customer Lifetime Value model using XGBoost with ~70% recall.</li>
+                    <li>Defined customer lifetime value segments using a RFM matrix for a period of 1 year from first transaction.</li>
+                    <li>Tested the performance using a A/B Testing framework in collaboration with the campaign management team.</li>
+                </ul>
+            </div>
+
+            <div class="mb-4">
+                <p class="text-sm font-bold">Trigger based sales prioritization</p>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li>Developed a custom spike‑detection logic for significant jumps in the customer's accounts payable and day sales outstanding.</li>
+                    <li>Integrated into the sales‑targeting system to prioritize high‑impact accounts.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="flex flex-col items-start w-full mb-8">
+        <h2 class="text-2xl font-bold mb-4">Projects</h2>
+        <div class="mb-4">
+            <a href="https://thellmpodcast.in" target="_blank" class="text-lg font-bold hover:text-blue-600 hover:underline dark:hover:text-blue-400">The LLM Podcast</a>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">An LLM driven sports news website</p>
+            <ul class="list-disc pl-5 space-y-1 text-sm">
+                <li>Curated real-time sports news by scraping articles from multiple online sources, leveraging LLM agents to extract and synthesize relevant insights.</li>
+                <li>Implemented unsupervised clustering algorithms (cosine similarity with gemini embeddings) to group similar articles, followed by LLM-based summarization.</li>
+                <li>Developed an automated podcast engine where two distinct LLM personas engage in dynamic, human-like dialogue.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Education -->
+    <div class="flex flex-col items-start w-full mb-8">
+        <h2 class="text-2xl font-bold mb-4">Education</h2>
+        <div class="w-full">
+            <div class="flex justify-between items-baseline w-full">
+                <h3 class="text-lg font-bold">Bachelor of Technology in CSE</h3>
+                <span class="text-sm text-gray-500 dark:text-gray-400">2018 – 2022</span>
+            </div>
+            <p class="text-sm font-bold">IIIT Delhi</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">8.4 CGPA</p>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
