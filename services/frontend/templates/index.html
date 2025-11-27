@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex flex-col w-full max-w-[800px] mx-auto pb-16">
+    <h1 class="text-6xl font-bold mb-4">Home</h1>
+    
+    <!-- Infinite Text Box -->
+    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner h-96 overflow-y-auto font-mono text-sm"
+         hx-ext="sse"
+         sse-connect="/stream"
+         sse-swap="message"
+         hx-swap="beforeend">
+        <div class="text-gray-500 italic">Connecting to live stream...</div>
+    </div>
+
+</div>
+{% endblock %}

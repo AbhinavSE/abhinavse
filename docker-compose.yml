@@ -1,12 +1,29 @@
 services:
-  web:
-    image: ghcr.io/abhinavse/abhinavse:latest
-    container_name: abhinavse
+  frontend:
+    build:
+      context: .
+      dockerfile: services/frontend/Dockerfile
+    image: ghcr.io/abhinavse/frontend:latest
+    container_name: abhinavse-frontend
     restart: unless-stopped
     ports:
       - "3000:3000"
     environment:
       - PORT=3000
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+  backend:
+    build:
+      context: .
+      dockerfile: services/backend/Dockerfile
+    image: ghcr.io/abhinavse/backend:latest
+    container_name: abhinavse-backend
+    restart: unless-stopped
+    depends_on:
+      - frontend
+    environment:
+      - WEB_SERVICE_URL=http://frontend:3000/internal/update
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
 
@@ -17,11 +34,5 @@ services:
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /home/ase/.docker/config.json:/config.json
-    environment:
-      - WATCHTOWER_HTTP_API_TOKEN=${WATCHTOWER_HTTP_API_TOKEN}
-    ports:
-      - "8069:8069"
-    # Run in HTTP API mode, listening on port 8069, cleanup old images
-    command: --http-api-update  --cleanup
+    command: --http-api-update --cleanup
 
