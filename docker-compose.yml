@@ -28,7 +28,6 @@ services:
       - "com.centurylinklabs.watchtower.enable=true"
 
   watchtower:
-    profiles: ["prod"]
     image: containrrr/watchtower
     container_name: watchtower
     restart: unless-stopped
