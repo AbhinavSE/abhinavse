@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: services/frontend/Dockerfile
-    image: ghcr.io/abhinavse/frontend:latest
+    image: ghcr.io/abhinavse/abhinavse/frontend:latest
     container_name: abhinavse-frontend
     restart: unless-stopped
     ports:
@@ -17,7 +17,7 @@ services:
     build:
       context: .
       dockerfile: services/backend/Dockerfile
-    image: ghcr.io/abhinavse/backend:latest
+    image: ghcr.io/abhinavse/abhinavse/backend:latest
     container_name: abhinavse-backend
     restart: unless-stopped
     depends_on:
